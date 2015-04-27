@@ -10,10 +10,10 @@ Product {
     consoleApplication: true
 
     cpp.cFlags: project.cFlags
-    cpp.includePaths: base.concat(project.includePaths)
-    cpp.libraryPaths: base.concat(project.libraryPaths)
-    cpp.cxxFlags: base.concat(project.cxxFlags)
-    cpp.linkerFlags: base.concat(project.linkFlags)
+    cpp.cxxFlags: project.cxxFlags
+    cpp.linkerFlags: project.linkFlags
+    cpp.includePaths: project.includePaths
+    cpp.libraryPaths: project.libraryPaths
     cpp.cxxLanguageVersion: "c++11"
 
     Properties {
