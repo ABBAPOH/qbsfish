@@ -45,6 +45,7 @@ Project {
     property stringList includePaths: []
     property stringList libraryPaths: []
 
+    property stringList cFlags: []
     property stringList cxxFlags: []
     property stringList linkFlags: []
 

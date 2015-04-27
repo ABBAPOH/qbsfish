@@ -9,6 +9,7 @@ Product {
 
     consoleApplication: true
 
+    cpp.cFlags: project.cFlags
     cpp.includePaths: base.concat(project.includePaths)
     cpp.libraryPaths: base.concat(project.libraryPaths)
     cpp.cxxFlags: base.concat(project.cxxFlags)

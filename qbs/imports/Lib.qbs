@@ -5,6 +5,7 @@ DynamicLibrary {
 
     destinationDirectory: project.install_library_path
 
+    cpp.cFlags: project.cFlags
     cpp.cxxFlags: project.cxxFlags
     cpp.linkerFlags: project.linkFlags
     cpp.includePaths: project.includePaths
