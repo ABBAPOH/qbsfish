@@ -45,20 +45,8 @@ Project {
     property stringList includePaths: []
     property stringList libraryPaths: []
 
-    property stringList cxxFlags: {
-        if (qbs.targetOS.contains("osx"))
-            return [ "-std=c++11", "-stdlib=libc++" ]
-        if (qbs.targetOS.contains("linux"))
-            return [ "-std=c++11", "-Werror" ]
-        else
-            return []
-    }
-    property stringList linkFlags: {
-        if (qbs.targetOS.contains("osx"))
-            return [ "-stdlib=libc++" ]
-        else
-            return []
-    }
+    property stringList cxxFlags: []
+    property stringList linkFlags: []
 
     qbsSearchPaths: "qbs"
 

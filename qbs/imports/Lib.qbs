@@ -9,6 +9,7 @@ DynamicLibrary {
     cpp.linkerFlags: project.linkFlags
     cpp.includePaths: project.includePaths
     cpp.libraryPaths: project.libraryPaths
+    cpp.cxxLanguageVersion: "c++11"
 
     Properties {
         condition: qbs.targetOS.contains("osx")

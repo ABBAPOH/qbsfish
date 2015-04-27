@@ -13,6 +13,7 @@ Product {
     cpp.libraryPaths: base.concat(project.libraryPaths)
     cpp.cxxFlags: base.concat(project.cxxFlags)
     cpp.linkerFlags: base.concat(project.linkFlags)
+    cpp.cxxLanguageVersion: "c++11"
 
     Properties {
         condition: qbs.targetOS.contains("osx")
