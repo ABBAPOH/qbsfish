@@ -5,6 +5,7 @@ App {
     name: project.app_target
     Depends { name: "Qt.core" }
     Depends { name: "Qt.widgets" }
+    Depends { name: "Lib" }
     files: [ "*.cpp", "*.h" ]
 
     bundle.infoPlistFile: "Info.plist.in"
