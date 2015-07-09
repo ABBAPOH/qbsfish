@@ -3,7 +3,7 @@ import qbs.base 1.0
 Application {
     Depends { name: "cpp" }
 
-    destinationDirectory: project.install_app_path
+    destinationDirectory: project.install_binary_path
 
     cpp.cFlags: project.cFlags
     cpp.cxxFlags: project.cxxFlags
@@ -25,6 +25,6 @@ Application {
     Group {
         fileTagsFilter: product.type
         qbs.install: true
-        qbs.installDir: project.install_app_path
+        qbs.installDir: project.install_binary_path
     }
 }
