@@ -5,7 +5,7 @@ Project {
 
     property string install_app_path: {
         if (qbs.targetOS.contains("osx") || qbs.targetOS.contains("windows"))
-            return "";
+            return ".";
         else
             return "bin";
     }
