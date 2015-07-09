@@ -1,4 +1,5 @@
 import qbs.base 1.0
+import qbs.FileInfo
 
 Application {
     Depends { name: "cpp" }
@@ -23,8 +24,10 @@ Application {
     }
 
     Group {
-        fileTagsFilter: product.type
+        fileTagsFilter: ["application"]
         qbs.install: true
-        qbs.installDir: project.install_binary_path
+        qbs.installDir: bundle.isBundle
+                        ? FileInfo.joinPaths(install_app_path, FileInfo.path(bundle.executablePath))
+                        : install_app_path
     }
 }
