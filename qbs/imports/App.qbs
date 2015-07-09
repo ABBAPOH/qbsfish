@@ -4,7 +4,7 @@ import qbs.FileInfo
 Application {
     Depends { name: "cpp" }
 
-    destinationDirectory: project.install_binary_path
+    destinationDirectory: project.install_app_path
 
     cpp.cFlags: project.cFlags
     cpp.cxxFlags: project.cxxFlags
