@@ -12,16 +12,10 @@ Application {
     cpp.includePaths: project.includePaths
     cpp.libraryPaths: project.libraryPaths
     cpp.cxxLanguageVersion: "c++11"
-
-    Properties {
-        condition: qbs.targetOS.contains("osx")
-        cpp.minimumOsxVersion: "10.7"
-    }
-
-    Properties {
-        condition: qbs.targetOS.contains("unix") && !qbs.targetOS.contains("osx")
-        cpp.rpaths: "$ORIGIN/../lib/" + project.app_target
-    }
+    cpp.minimumOsxVersion: "10.7"
+    cpp.rpaths: qbs.targetOS.contains("osx")
+                ? [ "@executable_path/.." ]
+                : [ "$ORIGIN/../lib/" + project.app_target ]
 
     Group {
         fileTagsFilter: ["application"]
