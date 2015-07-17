@@ -5,13 +5,13 @@ DynamicLibrary {
 
     destinationDirectory: project.install_library_path
 
+    bundle.isBundle: false
     cpp.cFlags: project.cFlags
     cpp.cxxFlags: project.cxxFlags
     cpp.linkerFlags: project.linkFlags
     cpp.includePaths: project.includePaths
     cpp.libraryPaths: project.libraryPaths
     cpp.cxxLanguageVersion: "c++11"
-    bundle.isBundle: false
     cpp.minimumOsxVersion: "10.7"
     cpp.installNamePrefix: "@rpath/Frameworks"
     cpp.rpaths: qbs.targetOS.contains("osx")
