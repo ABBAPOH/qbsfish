@@ -45,9 +45,11 @@ Project {
     property stringList includePaths: []
     property stringList libraryPaths: []
 
-    property stringList cFlags: []
-    property stringList cxxFlags: []
-    property stringList linkFlags: []
+    property stringList commonFlags:
+        qbs.targetOS.contains("osx") ? ["-stdlib=libc++"] : []
+    property stringList cFlags: commonFlags
+    property stringList cxxFlags: commonFlags
+    property stringList linkFlags: commonFlags
 
     property string buildType: "dynamic"
     property bool staticBuild: buildType == "static"
