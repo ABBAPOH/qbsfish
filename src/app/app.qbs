@@ -16,7 +16,7 @@ FishProduct {
 
     files: [ "*.cpp", "*.h", "*.ui" ]
 
-    bundle.infoPlistFile: "Info.plist.in"
+//    bundle.infoPlistFile: "Info.plist.in"
 
     Group {
         fileTagsFilter: ["application"]
