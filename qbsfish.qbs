@@ -50,6 +50,7 @@ Project {
     property stringList linkFlags: []
 
     property bool staticBuild: false
+    property bool frameworksBuild: !staticBuild
 
     qbsSearchPaths: "qbs"
 
