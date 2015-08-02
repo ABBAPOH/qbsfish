@@ -49,6 +49,8 @@ Project {
     property stringList cxxFlags: []
     property stringList linkFlags: []
 
+    property bool staticBuild: false
+
     qbsSearchPaths: "qbs"
 
     name: "Qbs Fish"

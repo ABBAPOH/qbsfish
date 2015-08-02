@@ -1,7 +1,7 @@
 import qbs.base 1.0
 
 FishProduct {
-    type: "dynamiclibrary"
+    type: project.staticBuild ? "staticlibrary" : "dynamiclibrary"
     Depends { name: "cpp" }
 
     destinationDirectory: project.install_library_path
@@ -13,6 +13,7 @@ FishProduct {
                 : [ "$ORIGIN" ]
 
     Group {
+        condition: !project.staticBuild
         fileTagsFilter: product.type
         qbs.install: true
         qbs.installDir: project.install_library_path
