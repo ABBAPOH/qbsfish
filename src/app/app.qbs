@@ -1,14 +1,30 @@
 import qbs.base 1.0
 import qbs.FileInfo
 
-App {
+FishProduct {
+    type: "application"
     name: project.app_target
+    destinationDirectory: project.install_app_path
+
+    cpp.rpaths: qbs.targetOS.contains("osx")
+                ? [ "@executable_path/.." ]
+                : [ "$ORIGIN/../lib/" + project.app_target ]
+
     Depends { name: "Qt.core" }
     Depends { name: "Qt.widgets" }
     Depends { name: "Lib" }
+
     files: [ "*.cpp", "*.h" ]
 
     bundle.infoPlistFile: "Info.plist.in"
+
+    Group {
+        fileTagsFilter: ["application"]
+        qbs.install: true
+        qbs.installDir: bundle.isBundle
+                        ? FileInfo.joinPaths(install_app_path, FileInfo.path(bundle.executablePath))
+                        : install_app_path
+    }
 
     Group {
         name: ".icns"

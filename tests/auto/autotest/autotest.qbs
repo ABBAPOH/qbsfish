@@ -1,6 +1,6 @@
 import qbs.base 1.0
 
-AutoTest {
+FishAutoTest {
     name: "AutoTest"
     Depends { name: "Lib" }
     files: [ "*.cpp", "*.h" ]
