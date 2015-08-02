@@ -62,5 +62,7 @@ Project {
     SubProject {
         filePath: "tests/tests.qbs"
     }
+
+    AutotestRunner {}
 }
 
