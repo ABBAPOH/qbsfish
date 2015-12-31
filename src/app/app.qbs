@@ -14,7 +14,7 @@ FishProduct {
     Depends { name: "Qt.widgets" }
     Depends { name: "Lib" }
 
-    files: [ "*.cpp", "*.h" ]
+    files: [ "*.cpp", "*.h", "*.ui" ]
 
     bundle.infoPlistFile: "Info.plist.in"
 
@@ -29,7 +29,7 @@ FishProduct {
     Group {
         name: ".icns"
         condition: qbs.targetOS.contains("osx")
-        files: "Fish.icns"
+        files: [ "Fish.icns", ]
         qbs.install: true
         qbs.installDir: install_data_path
     }
