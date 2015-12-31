@@ -5,6 +5,10 @@ cmake_minimum_required( VERSION 3.3 )
 find_package( Qt5Core REQUIRED )
 find_package( Qt5Widgets REQUIRED )
 
+set(CMAKE_AUTOMOC ON)
+SET(CMAKE_AUTOUIC ON)
+SET(CMAKE_INCLUDE_CURRENT_DIR ON)
+
 if( APPLE )
 	set(APP_TARGET "Fish")
 elseif( WIN32 )

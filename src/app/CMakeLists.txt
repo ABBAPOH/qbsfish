@@ -1,10 +1,15 @@
 set(HEADERS
+    mainwindow.h
 )
 set(SOURCES
+    mainwindow.cpp
     main.cpp
 )
+set(FORMS
+    mainwindow.ui
+)
 
-add_executable(${APP_TARGET} ${HEADERS} ${SOURCES})
+add_executable(${APP_TARGET} ${HEADERS} ${SOURCES} ${FORMS})
 target_link_libraries(${APP_TARGET} ${QT_LIBRARIES} Lib)
 
 qt5_use_modules(${APP_TARGET} Core Widgets)
