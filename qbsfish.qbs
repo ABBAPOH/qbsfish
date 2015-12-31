@@ -49,8 +49,9 @@ Project {
     property stringList cxxFlags: []
     property stringList linkFlags: []
 
-    property bool staticBuild: false
-    property bool frameworksBuild: !staticBuild
+    property string buildType: "dynamic"
+    property bool staticBuild: buildType == "static"
+    property bool frameworksBuild: qbs.targetOS.contains("osx") && buildType == "frameworks"
 
     qbsSearchPaths: "qbs"
 
