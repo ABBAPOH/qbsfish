@@ -8,8 +8,8 @@ set(SOURCES
 set(FORMS
     mainwindow.ui
 )
-
-add_executable(${APP_TARGET} ${HEADERS} ${SOURCES} ${FORMS})
+qt5_wrap_ui(FORMS_SRC ${FORMS})
+add_executable(${APP_TARGET} ${HEADERS} ${SOURCES} ${FORMS_SRC})
 target_link_libraries(${APP_TARGET} ${QT_LIBRARIES} Lib)
 
 qt5_use_modules(${APP_TARGET} Core Widgets)
