@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Fish
+GenericName=Fish program
+Comment=An example of a program
+Exec=fish
+Terminal=false
+Type=Application
+StartupNotify=true
+Icon=fish
+Categories=Other
