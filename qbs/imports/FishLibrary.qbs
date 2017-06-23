@@ -18,8 +18,8 @@ FishProduct {
         fileTagsFilter: ["dynamiclibrary"]
         qbs.install: true
         qbs.installDir: bundle.isBundle
-                        ? FileInfo.joinPaths(install_library_path, FileInfo.path(bundle.executablePath))
-                        : install_library_path
+                        ? FileInfo.joinPaths(project.install_library_path, FileInfo.path(bundle.executablePath))
+                        : project.install_library_path
     }
 
     Group {
@@ -27,21 +27,21 @@ FishProduct {
         fileTagsFilter: ["dynamiclibrary_symlink"]
         qbs.install: true
         qbs.installDir: bundle.isBundle
-                        ? install_library_path + "/" + bundle.bundleName
-                        : install_library_path
+                        ? project.install_library_path + "/" + bundle.bundleName
+                        : project.install_library_path
     }
 
     Group {
         condition: !project.staticBuild
         fileTagsFilter: ["infoplist"]
         qbs.install: bundle.isBundle && !bundle.embedInfoPlist
-        qbs.installDir: FileInfo.joinPaths(install_library_path, FileInfo.path(bundle.infoPlistPath))
+        qbs.installDir: FileInfo.joinPaths(project.install_library_path, FileInfo.path(bundle.infoPlistPath))
     }
 
     Group {
         condition: !project.staticBuild
         fileTagsFilter: ["pkginfo"]
         qbs.install: bundle.isBundle
-        qbs.installDir: FileInfo.joinPaths(install_library_path, FileInfo.path(bundle.pkgInfoPath))
+        qbs.installDir: FileInfo.joinPaths(project.install_library_path, FileInfo.path(bundle.pkgInfoPath))
     }
 }

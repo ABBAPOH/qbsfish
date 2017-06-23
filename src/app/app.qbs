@@ -23,7 +23,7 @@ FishProduct {
         qbs.install: true
         qbs.installDir: bundle.isBundle
                         ? FileInfo.joinPaths(install_app_path, FileInfo.path(bundle.executablePath))
-                        : install_app_path
+                        : project.install_app_path
     }
 
     Group {
@@ -31,12 +31,12 @@ FishProduct {
         condition: qbs.targetOS.contains("osx")
         files: [ "Fish.icns", ]
         qbs.install: true
-        qbs.installDir: install_data_path
+        qbs.installDir: project.install_data_path
     }
 
     Group {
         fileTagsFilter: ["infoplist"]
         qbs.install: true && bundle.isBundle && !bundle.embedInfoPlist
-        qbs.installDir: FileInfo.joinPaths(install_app_path, FileInfo.path(bundle.infoPlistPath))
+        qbs.installDir: FileInfo.joinPaths(project.install_app_path, FileInfo.path(bundle.infoPlistPath))
     }
 }
