@@ -55,4 +55,9 @@ Module {
     property string buildType: "dynamic"
     property bool staticBuild: buildType == "static"
     property bool frameworksBuild: qbs.targetOS.contains("osx") && buildType == "frameworks"
+    property bool checkBuildType: {
+        if (buildType != "static" && buildType != "dynamic" && buildType != "frameworks")
+            throw "Invalid build type: should be one of [static, dynamic, frameworks]";
+        return true;
+    }
 }
