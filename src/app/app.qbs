@@ -4,7 +4,7 @@ import qbs.FileInfo
 MyApp {
     Depends { name: "Qt.core" }
     Depends { name: "Qt.widgets" }
-    Depends { name: "Lib" }
+    Depends { name: "FishLib" }
 
     name: "Fish"
 

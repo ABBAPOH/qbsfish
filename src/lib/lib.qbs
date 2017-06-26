@@ -1,6 +1,6 @@
 import qbs.base 1.0
 
 MyLibrary {
-    name: "Lib"
+    name: "FishLib"
     files: [ "*.cpp", "*.h" ]
 }
