@@ -1,7 +1,7 @@
 import qbs.base 1.0
 import qbs.FileInfo
 
-FishApp {
+MyApp {
     Depends { name: "Qt.core" }
     Depends { name: "Qt.widgets" }
     Depends { name: "Lib" }

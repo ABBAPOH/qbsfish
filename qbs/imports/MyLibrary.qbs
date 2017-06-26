@@ -1,7 +1,7 @@
 import qbs.base 1.0
 import qbs.FileInfo
 
-FishProduct {
+MyProduct {
     type: mym.staticBuild ? "staticlibrary" : "dynamiclibrary"
     Depends { name: "cpp" }
 

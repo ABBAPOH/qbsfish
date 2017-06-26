@@ -1,6 +1,6 @@
 import qbs.base 1.0
 
-FishAutoTest {
+MyAutoTest {
     name: "AutoTest"
     Depends { name: "Lib" }
     Depends { name: "Qt.core" }

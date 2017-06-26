@@ -1,6 +1,6 @@
 import qbs.base 1.0
 
-FishProduct {
+MyProduct {
     type: ["application", "autotest"]
     destinationDirectory: mym.install_binary_path
     consoleApplication: true
