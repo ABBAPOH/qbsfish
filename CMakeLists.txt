@@ -10,7 +10,15 @@ SET(CMAKE_AUTOUIC ON)
 SET(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 if( APPLE )
-	set(APP_TARGET "Fish")
+    set(APP_TARGET "Fish")
+    set( APP_APPLICATION_PATH  ${PROJECT_BINARY_DIR} )
+    set( APP_BINARY_PATH       ${APP_APPLICATION_PATH}/Fish.app/Contents/MacOs )
+    set( APP_LIBRARY_PATH      ${APP_APPLICATION_PATH}/Fish.app/Contents/Frameworks )
+
+    set( INSTALL_PATH              ${CMAKE_INSTALL_PREFIX} )
+    set( INSTALL_BINARY_PATH       ${INSTALL_PATH}/Fish.app/Contents/MacOs )
+    set( INSTALL_LIBRARY_PATH      ${INSTALL_PATH}/Fish.app/Contents/Frameworks )
+
 elseif( WIN32 )
 	set(APP_TARGET "fish")
 elseif( UNIX )
