@@ -45,8 +45,7 @@ Project {
     property stringList includePaths: []
     property stringList libraryPaths: []
 
-    property stringList commonFlags:
-        qbs.targetOS.contains("osx") ? ["-stdlib=libc++"] : []
+    property stringList commonFlags: []
     property stringList cFlags: commonFlags
     property stringList cxxFlags: commonFlags
     property stringList linkFlags: commonFlags
