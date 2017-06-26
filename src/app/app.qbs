@@ -6,22 +6,17 @@ FishApp {
     Depends { name: "Qt.widgets" }
     Depends { name: "Lib" }
 
+    name: "Fish"
+
     files: [ "*.cpp", "*.h", "*.ui" ]
 
 //    bundle.infoPlistFile: "Info.plist.in"
 
     Group {
-        fileTagsFilter: ["application"]
+        fileTagsFilter: bundle.isBundle ? ["bundle.content"] : ["application"]
         qbs.install: true
-        qbs.installDir: bundle.isBundle
-                        ? FileInfo.joinPaths(project.install_app_path, FileInfo.path(bundle.executablePath))
-                        : project.install_app_path
-    }
-
-    Group {
-        fileTagsFilter: ["infoplist"]
-        qbs.install: true && bundle.isBundle && !bundle.embedInfoPlist
-        qbs.installDir: FileInfo.joinPaths(project.install_app_path, FileInfo.path(bundle.infoPlistPath))
+        qbs.installDir: mym.install_app_path
+        qbs.installSourceBase: project.buildDirectory + '/' + product.destinationDirectory
     }
 
     Group {
@@ -29,7 +24,7 @@ FishApp {
         condition: qbs.targetOS.contains("osx")
         files: [ "Fish.icns" ]
         qbs.install: true
-        qbs.installDir: project.install_data_path
+        qbs.installDir: mym.install_data_path
     }
 
     Group {

@@ -6,9 +6,9 @@ FishProduct {
     Depends { name: "bundle" }
 
     type: "application"
-    destinationDirectory: project.install_app_path
+    destinationDirectory: mym.install_app_path
 
     cpp.rpaths: qbs.targetOS.contains("osx")
                 ? [ "@executable_path/.." ]
-                : [ "$ORIGIN/../lib/" + project.app_target ]
+                : [ "$ORIGIN/../lib/" + mym.app_target ]
 }
