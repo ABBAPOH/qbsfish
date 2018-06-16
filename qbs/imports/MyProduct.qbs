@@ -8,7 +8,7 @@ Product {
     cpp.linkerFlags: mym.linkFlags
     cpp.includePaths: mym.includePaths
     cpp.libraryPaths: mym.libraryPaths
-    cpp.minimumOsxVersion: "10.7"
+//    cpp.minimummacosVersion: "10.7"
     cpp.cxxLanguageVersion: "c++11"
 
     Depends { name: "bundle" }

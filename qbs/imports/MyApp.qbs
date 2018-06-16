@@ -8,7 +8,7 @@ MyProduct {
     type: "application"
     destinationDirectory: mym.install_app_path
 
-    cpp.rpaths: qbs.targetOS.contains("osx")
+    cpp.rpaths: qbs.targetOS.contains("macos")
                 ? [ "@executable_path/.." ]
                 : [ "$ORIGIN/../lib/" + mym.app_target ]
 }

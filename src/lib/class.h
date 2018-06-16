@@ -6,6 +6,8 @@ class Class
 public:
     Class();
     ~Class();
+
+    void foo();
 };
 
 #endif // CLASS_H

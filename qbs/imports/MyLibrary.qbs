@@ -8,8 +8,8 @@ MyProduct {
     destinationDirectory: mym.install_library_path
 
     bundle.isBundle: mym.frameworksBuild
-    cpp.sonamePrefix: qbs.targetOS.contains("osx") ? "@rpath/Frameworks/" : ""
-    cpp.rpaths: qbs.targetOS.contains("osx")
+    cpp.sonamePrefix: qbs.targetOS.contains("macos") ? "@rpath/Frameworks/" : ""
+    cpp.rpaths: qbs.targetOS.contains("macos")
                 ? [ "@loader_path/..", "@executable_path/.." ]
                 : [ "$ORIGIN" ]
 
@@ -17,8 +17,9 @@ MyProduct {
         fileTagsFilter: bundle.isBundle
                         ? ["bundle.content"]
                         : ["dynamiclibrary", "dynamiclibrary_symlink", "dynamiclibrary_import"]
+//        fileTagsFilter: product.type
         qbs.install: true
         qbs.installDir: mym.install_library_path
-        qbs.installSourceBase: project.buildDirectory + '/' + product.destinationDirectory
+//        qbs.installSourceBase: project.buildDirectory + '/' + product.destinationDirectory
     }
 }

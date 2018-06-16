@@ -6,7 +6,7 @@ MyProduct {
     consoleApplication: true
 
     Depends { name: "cpp" }
-    cpp.rpaths: qbs.targetOS.contains("osx")
+    cpp.rpaths: qbs.targetOS.contains("macos")
                 ? [ "@executable_path/.." ]
                 : [ "$ORIGIN/../lib" + mym.lib_suffix + "/" + mym.app_target ]
 }
