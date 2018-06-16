@@ -14,11 +14,20 @@ MyProduct {
                 : [ "$ORIGIN" ]
 
     Group {
-        fileTagsFilter: bundle.isBundle
-                        ? ["bundle.content"]
-                        : qbs.debugInfo
-                          ? ["dynamiclibrary", "dynamiclibrary_symlink", "dynamiclibrary_import", "debuginfo_dll"]
-                          : ["dynamiclibrary", "dynamiclibrary_symlink", "dynamiclibrary_import"]
+        fileTagsFilter: {
+            if (bundle.isBundle) {
+                return ["bundle.content"];
+            } else {
+                var result = [
+                            "dynamiclibrary",
+                            "dynamiclibrary_symlink",
+                            "dynamiclibrary_import",
+                        ];
+                if (qbs.debugInformation)
+                    result.push("debuginfo_dll");
+                return result;
+            }
+        }
         qbs.install: true
         qbs.installDir: mym.install_library_path
         qbs.installSourceBase: project.buildDirectory + '/' + product.destinationDirectory
