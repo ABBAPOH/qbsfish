@@ -16,10 +16,11 @@ MyProduct {
     Group {
         fileTagsFilter: bundle.isBundle
                         ? ["bundle.content"]
-                        : ["dynamiclibrary", "dynamiclibrary_symlink", "dynamiclibrary_import"]
-//        fileTagsFilter: product.type
+                        : qbs.debugInfo
+                          ? ["dynamiclibrary", "dynamiclibrary_symlink", "dynamiclibrary_import", "debuginfo_dll"]
+                          : ["dynamiclibrary", "dynamiclibrary_symlink", "dynamiclibrary_import"]
         qbs.install: true
         qbs.installDir: mym.install_library_path
-//        qbs.installSourceBase: project.buildDirectory + '/' + product.destinationDirectory
+        qbs.installSourceBase: project.buildDirectory + '/' + product.destinationDirectory
     }
 }
