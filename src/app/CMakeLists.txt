@@ -10,9 +10,7 @@ set(FORMS
 )
 qt5_wrap_ui(FORMS_SRC ${FORMS})
 add_executable(${APP_TARGET} ${HEADERS} ${SOURCES} ${FORMS_SRC})
-target_link_libraries(${APP_TARGET} ${QT_LIBRARIES} Lib)
-
-qt5_use_modules(${APP_TARGET} Core Widgets)
+target_link_libraries(${APP_TARGET} Qt5::Core Qt5::Widgets Lib)
 
 install(TARGETS ${APP_TARGET}
     LIBRARY DESTINATION ${INSTALL_LIBRARY_PATH}

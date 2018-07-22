@@ -2,8 +2,8 @@ project( Fish )
 
 cmake_minimum_required( VERSION 2.8 )
 
-find_package( Qt5Core REQUIRED )
-find_package( Qt5Widgets REQUIRED )
+find_package( Qt5Core CONFIG REQUIRED )
+find_package( Qt5Widgets CONFIG REQUIRED )
 
 set(CMAKE_AUTOMOC ON)
 SET(CMAKE_AUTOUIC ON)
@@ -34,6 +34,9 @@ elseif( UNIX )
     set( INSTALL_LIBRARY_PATH      ${INSTALL_PATH}/lib${LIB_SUFFIX}/fish )
 endif()
 
-set(CMAKE_CXX_FLAGS "-std=c++11")
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+include_directories(${PROJECT_SOURCE_DIR}/src)
 
 add_subdirectory(src)

@@ -6,7 +6,7 @@ set(SOURCES
 )
 
 add_library(Lib SHARED ${HEADERS} ${SOURCES})
-target_link_libraries(Lib ${QT_LIBRARIES})
+target_link_libraries(Lib Qt5::Core)
 
 install(TARGETS Lib
     LIBRARY DESTINATION ${INSTALL_LIBRARY_PATH}
