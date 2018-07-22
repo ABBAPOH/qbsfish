@@ -9,7 +9,7 @@ Product {
     cpp.includePaths: mym.includePaths
     cpp.libraryPaths: mym.libraryPaths
 //    cpp.minimummacosVersion: "10.7"
-    cpp.cxxLanguageVersion: "c++11"
+    cpp.cxxLanguageVersion: "c++14"
 
     Depends { name: "bundle" }
 }

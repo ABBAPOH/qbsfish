@@ -8,8 +8,8 @@ int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
 
-    Class c;
-    c.foo();
+    const auto c = std::make_unique<Class>();
+    c->foo();
 
     MainWindow w;
     w.show();
