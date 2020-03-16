@@ -13,13 +13,6 @@ MyApp {
 //    bundle.infoPlistFile: "Info.plist.in"
 
     Group {
-        fileTagsFilter: bundle.isBundle ? ["bundle.content"] : ["application"]
-        qbs.install: true
-        qbs.installDir: buildconfig.install_app_path
-        qbs.installSourceBase: project.buildDirectory + '/' + product.destinationDirectory
-    }
-
-    Group {
         name: "Fish.icns"
         condition: qbs.targetOS.contains("macos")
         files: [ "Fish.icns" ]
