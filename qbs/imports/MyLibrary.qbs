@@ -10,9 +10,9 @@ Product {
     destinationDirectory: buildconfig.install_library_path
 
     bundle.isBundle: buildconfig.frameworksBuild
-    cpp.sonamePrefix: qbs.targetOS.contains("macos") ? "@rpath/Frameworks/" : ""
+    cpp.sonamePrefix: qbs.targetOS.contains("macos") ? "@rpath/" : ""
     cpp.rpaths: qbs.targetOS.contains("macos")
-                ? [ "@loader_path/..", "@executable_path/.." ]
+                ? [ "@loader_path", "@executable_path" ]
                 : [ "$ORIGIN" ]
 
     Group {
