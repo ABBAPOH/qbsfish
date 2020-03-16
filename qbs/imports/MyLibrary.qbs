@@ -1,7 +1,7 @@
 import qbs.base 1.0
 import qbs.FileInfo
 
-Product {
+QbsLibrary {
     Depends { name: "buildconfig" }
     Depends { name: "bundle" }
     type: buildconfig.staticBuild ? "staticlibrary" : "dynamiclibrary"
@@ -10,22 +10,12 @@ Product {
     bundle.isBundle: buildconfig.frameworksBuild
     cpp.sonamePrefix: qbs.targetOS.contains("macos") ? "@rpath/" : ""
     cpp.rpaths: cpp.rpathOrigin
+    install: true
+    installDir: buildconfig.install_library_path
 
     Group {
-        fileTagsFilter: {
-            if (bundle.isBundle) {
-                return ["bundle.content"];
-            } else {
-                var result = [
-                            "dynamiclibrary",
-                            "dynamiclibrary_symlink",
-                            "dynamiclibrary_import",
-                        ];
-                if (qbs.debugInformation)
-                    result.push("debuginfo_dll");
-                return result;
-            }
-        }
+        condition: cpp.separateDebugInformation
+        fileTagsFilter: "debuginfo_dll"
         qbs.install: true
         qbs.installDir: buildconfig.install_library_path
         qbs.installSourceBase: destinationDirectory

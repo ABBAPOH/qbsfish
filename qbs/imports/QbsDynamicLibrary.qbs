@@ -33,21 +33,4 @@ QbsLibrary {
 
     installDir: isBundle ? "Library/Frameworks" : qbs.targetOS.contains("windows")
                            ? "bin" : "lib"
-    property bool installImportLib: false
-    property string importLibInstallDir: "lib"
-
-    Group {
-        condition: install
-        fileTagsFilter: isBundle ? "bundle.content" : ["dynamiclibrary", "dynamiclibrary_symlink"]
-        qbs.install: true
-        qbs.installDir: installDir
-        qbs.installSourceBase: isBundle ? destinationDirectory : outer
-    }
-
-    Group {
-        condition: installImportLib
-        fileTagsFilter: "dynamiclibrary_import"
-        qbs.install: true
-        qbs.installDir: importLibInstallDir
-    }
 }

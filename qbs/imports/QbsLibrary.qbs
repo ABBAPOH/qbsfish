@@ -34,4 +34,32 @@ QbsNativeBinary {
             return ["staticlibrary"];
         return ["dynamiclibrary"].concat(isForAndroid ? ["android.nativelibrary"] : []);
     }
+
+    property bool installImportLib: false
+    property string importLibInstallDir: "lib"
+
+    Group {
+        condition: install
+        fileTagsFilter: {
+            if (isBundle)
+                return ["bundle.content"];
+            else if (type.contains("dynamiclibrary"))
+                return ["dynamiclibrary", "dynamiclibrary_symlink"];
+            else if (type.contains("staticlibrary"))
+                return ["staticlibrary"];
+            else if (type.contains("loadablemodule"))
+                return ["loadablemodule"];
+            return [];
+        }
+        qbs.install: true
+        qbs.installDir: installDir
+        qbs.installSourceBase: isBundle ? destinationDirectory : outer
+    }
+
+    Group {
+        condition: installImportLib && type.contains("dynamiclibrary")
+        fileTagsFilter: "dynamiclibrary_import"
+        qbs.install: true
+        qbs.installDir: importLibInstallDir
+    }
 }
