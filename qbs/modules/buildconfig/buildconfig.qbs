@@ -62,7 +62,6 @@ Module {
     }
 
     Depends { name: "cpp" }
-    Depends { name: "bundle" }
 
     cpp.cxxFlags: buildconfig.cxxFlags
     cpp.linkerFlags: buildconfig.linkFlags

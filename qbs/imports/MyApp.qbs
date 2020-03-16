@@ -1,8 +1,8 @@
 import qbs.base 1.0
 import qbs.FileInfo
 
-MyProduct {
-    Depends { name: "cpp" }
+Product {
+    Depends { name: "buildconfig" }
     Depends { name: "bundle" }
 
     type: "application"

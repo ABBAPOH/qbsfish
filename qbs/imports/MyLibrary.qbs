@@ -1,7 +1,9 @@
 import qbs.base 1.0
 import qbs.FileInfo
 
-MyProduct {
+Product {
+    Depends { name: "buildconfig" }
+    Depends { name: "bundle" }
     type: buildconfig.staticBuild ? "staticlibrary" : "dynamiclibrary"
     Depends { name: "cpp" }
 
