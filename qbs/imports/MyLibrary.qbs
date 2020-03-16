@@ -7,13 +7,9 @@ Product {
     type: buildconfig.staticBuild ? "staticlibrary" : "dynamiclibrary"
     Depends { name: "cpp" }
 
-    destinationDirectory: buildconfig.install_library_path
-
     bundle.isBundle: buildconfig.frameworksBuild
     cpp.sonamePrefix: qbs.targetOS.contains("macos") ? "@rpath/" : ""
-    cpp.rpaths: qbs.targetOS.contains("macos")
-                ? [ "@loader_path", "@executable_path" ]
-                : [ "$ORIGIN" ]
+    cpp.rpaths: cpp.rpathOrigin
 
     Group {
         fileTagsFilter: {
@@ -32,6 +28,6 @@ Product {
         }
         qbs.install: true
         qbs.installDir: buildconfig.install_library_path
-        qbs.installSourceBase: project.buildDirectory + '/' + product.destinationDirectory
+        qbs.installSourceBase: destinationDirectory
     }
 }
