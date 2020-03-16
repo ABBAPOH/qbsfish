@@ -60,4 +60,14 @@ Module {
             throw "Invalid build type: should be one of [static, dynamic, frameworks]";
         return true;
     }
+
+    Depends { name: "cpp" }
+    Depends { name: "bundle" }
+
+    cpp.cxxFlags: buildconfig.cxxFlags
+    cpp.linkerFlags: buildconfig.linkFlags
+    cpp.includePaths: buildconfig.includePaths
+    cpp.libraryPaths: buildconfig.libraryPaths
+//    cpp.minimummacosVersion: "10.7"
+    cpp.cxxLanguageVersion: "c++14"
 }
