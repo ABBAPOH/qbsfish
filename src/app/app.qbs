@@ -15,7 +15,7 @@ MyApp {
     Group {
         fileTagsFilter: bundle.isBundle ? ["bundle.content"] : ["application"]
         qbs.install: true
-        qbs.installDir: mym.install_app_path
+        qbs.installDir: buildconfig.install_app_path
         qbs.installSourceBase: project.buildDirectory + '/' + product.destinationDirectory
     }
 
@@ -24,7 +24,7 @@ MyApp {
         condition: qbs.targetOS.contains("macos")
         files: [ "Fish.icns" ]
         qbs.install: true
-        qbs.installDir: mym.install_data_path
+        qbs.installDir: buildconfig.install_data_path
     }
 
     Group {
