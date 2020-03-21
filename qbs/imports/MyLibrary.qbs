@@ -11,8 +11,14 @@ QbsLibrary {
     cpp.sonamePrefix: qbs.targetOS.contains("macos") ? "@rpath/" : ""
     cpp.rpaths: cpp.rpathOrigin
     cpp.minimumMacosVersion: "10.10"
+    cpp.includePaths: ".."
     install: true
     installDir: buildconfig.installLibraryPath
+
+    Export {
+        Depends { name: "cpp" }
+        cpp.includePaths: ".."
+    }
 
     Group {
         condition: cpp.separateDebugInformation

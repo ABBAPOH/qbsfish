@@ -53,7 +53,6 @@ Module {
     Depends { name: "cpp" }
 
     cpp.cxxLanguageVersion: "c++17"
-    cpp.includePaths: [ project.project_root + "/src" ]
 
     Properties {
         condition: qbs.toolchain.contains("gcc")
