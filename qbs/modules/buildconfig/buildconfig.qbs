@@ -5,7 +5,7 @@ Module {
 
     property string install_app_path: {
         if (qbs.targetOS.contains("macos"))
-            return ".";
+            return "Applications";
         else if (qbs.targetOS.contains("windows"))
             return ".";
         else
@@ -14,7 +14,7 @@ Module {
 
     property string install_binary_path: {
         if (qbs.targetOS.contains("macos"))
-            return app_target + ".app/Contents/MacOS"
+            return install_app_path + "/" + app_target + ".app/Contents/MacOS"
         else
             return install_app_path
     }
@@ -23,7 +23,7 @@ Module {
 
     property string install_library_path: {
         if (qbs.targetOS.contains("macos"))
-            return app_target + ".app/Contents/Frameworks"
+            return install_app_path + "/" + app_target + ".app/Contents/Frameworks"
         else if (qbs.targetOS.contains("windows"))
             return install_app_path
         else
@@ -32,14 +32,14 @@ Module {
 
     property string install_plugin_path: {
         if (qbs.targetOS.contains("macos"))
-            return app_target + ".app/Contents/PlugIns"
+            return install_app_path + "/" + app_target + ".app/Contents/PlugIns"
         else
             return install_library_path + "/plugins"
     }
 
     property string install_data_path: {
         if (qbs.targetOS.contains("macos"))
-            return app_target + ".app/Contents/Resources"
+            return install_app_path + "/" + app_target + ".app/Contents/Resources"
         else
             return "share/" + app_target
     }
