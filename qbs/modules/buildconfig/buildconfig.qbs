@@ -5,9 +5,9 @@ Module {
     property bool frameworksBuild: qbs.targetOS.contains("macos") && !staticBuild
     property string libDirName: "lib"
 
-    property string appTarget: qbs.targetOS.contains("macos") ? "Fish" : "fish"
+    readonly property string appTarget: qbs.targetOS.contains("macos") ? "Fish" : "fish"
 
-    property string installAppPath: {
+    readonly property string installAppPath: {
         if (qbs.targetOS.contains("macos"))
             return "Applications";
         else if (qbs.targetOS.contains("windows"))
@@ -16,14 +16,14 @@ Module {
             return "bin";
     }
 
-    property string installBinaryPath: {
+    readonly property string installBinaryPath: {
         if (qbs.targetOS.contains("macos"))
             return installAppPath + "/" + appTarget + ".app/Contents/MacOS"
         else
             return installAppPath
     }
 
-    property string installLibraryPath: {
+    readonly property string installLibraryPath: {
         if (qbs.targetOS.contains("macos"))
             return installAppPath + "/" + appTarget + ".app/Contents/Frameworks"
         else if (qbs.targetOS.contains("windows"))
@@ -32,14 +32,14 @@ Module {
             return libDirName + "/" + appTarget
     }
 
-    property string installPluginPath: {
+    readonly property string installPluginPath: {
         if (qbs.targetOS.contains("macos"))
             return installAppPath + "/" + appTarget + ".app/Contents/PlugIns"
         else
             return installLibraryPath + "/plugins"
     }
 
-    property string installDataPath: {
+    readonly property string installDataPath: {
         if (qbs.targetOS.contains("macos"))
             return installAppPath + "/" + appTarget + ".app/Contents/Resources"
         else
