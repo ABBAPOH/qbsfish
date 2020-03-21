@@ -10,6 +10,7 @@ QbsLibrary {
     bundle.isBundle: buildconfig.frameworksBuild
     cpp.sonamePrefix: qbs.targetOS.contains("macos") ? "@rpath/" : ""
     cpp.rpaths: cpp.rpathOrigin
+    cpp.minimumMacosVersion: "10.10"
     install: true
     installDir: buildconfig.installLibraryPath
 

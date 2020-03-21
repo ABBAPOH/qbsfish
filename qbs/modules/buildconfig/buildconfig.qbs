@@ -60,6 +60,5 @@ Module {
     cpp.linkerFlags: buildconfig.linkFlags
     cpp.includePaths: buildconfig.includePaths
     cpp.libraryPaths: buildconfig.libraryPaths
-//    cpp.minimummacosVersion: "10.7"
     cpp.cxxLanguageVersion: "c++14"
 }

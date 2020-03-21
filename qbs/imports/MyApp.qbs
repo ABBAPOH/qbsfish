@@ -13,4 +13,5 @@ QbsCppApplication {
                                    qbs.targetOS.contains("macos")
                                    ? "Frameworks"
                                    : "lib/" + buildconfig.appTarget)
+    cpp.minimumMacosVersion: "10.10"
 }
