@@ -1,6 +1,9 @@
 import qbs 1.0
 
 Module {
+    property bool staticBuild: false
+    property bool frameworksBuild: qbs.targetOS.contains("macos") && !staticBuild
+
     property string app_target: qbs.targetOS.contains("macos") ? "Fish" : "fish"
 
     property string install_app_path: {
@@ -51,15 +54,6 @@ Module {
     property stringList cFlags: commonFlags
     property stringList cxxFlags: commonFlags
     property stringList linkFlags: commonFlags
-
-    property string buildType: "dynamic"
-    property bool staticBuild: buildType == "static"
-    property bool frameworksBuild: qbs.targetOS.contains("macos") && buildType == "frameworks"
-    property bool checkBuildType: {
-        if (buildType != "static" && buildType != "dynamic" && buildType != "frameworks")
-            throw "Invalid build type: should be one of [static, dynamic, frameworks]";
-        return true;
-    }
 
     Depends { name: "cpp" }
 
