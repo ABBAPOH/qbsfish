@@ -3,6 +3,7 @@ import qbs 1.0
 Module {
     property bool staticBuild: false
     property bool frameworksBuild: qbs.targetOS.contains("macos") && !staticBuild
+    property string libDirName: "lib"
 
     property string appTarget: qbs.targetOS.contains("macos") ? "Fish" : "fish"
 
@@ -22,15 +23,13 @@ Module {
             return installAppPath
     }
 
-    property string libSuffix: ""
-
     property string installLibraryPath: {
         if (qbs.targetOS.contains("macos"))
             return installAppPath + "/" + appTarget + ".app/Contents/Frameworks"
         else if (qbs.targetOS.contains("windows"))
             return installAppPath
         else
-            return "lib" + libSuffix + "/" + appTarget
+            return libDirName + "/" + appTarget
     }
 
     property string installPluginPath: {
