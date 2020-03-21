@@ -11,13 +11,13 @@ QbsLibrary {
     cpp.sonamePrefix: qbs.targetOS.contains("macos") ? "@rpath/" : ""
     cpp.rpaths: cpp.rpathOrigin
     install: true
-    installDir: buildconfig.install_library_path
+    installDir: buildconfig.installLibraryPath
 
     Group {
         condition: cpp.separateDebugInformation
         fileTagsFilter: "debuginfo_dll"
         qbs.install: true
-        qbs.installDir: buildconfig.install_library_path
+        qbs.installDir: buildconfig.installLibraryPath
         qbs.installSourceBase: destinationDirectory
     }
 }

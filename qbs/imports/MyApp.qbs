@@ -6,11 +6,11 @@ QbsCppApplication {
     Depends { name: "bundle" }
 
     install: true
-    installDir: buildconfig.install_app_path
+    installDir: buildconfig.installAppPath
 
     cpp.rpaths: FileInfo.joinPaths(cpp.rpathOrigin,
                                    "..",
                                    qbs.targetOS.contains("macos")
                                    ? "Frameworks"
-                                   : "lib/" + buildconfig.app_target)
+                                   : "lib/" + buildconfig.appTarget)
 }

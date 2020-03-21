@@ -4,9 +4,9 @@ Module {
     property bool staticBuild: false
     property bool frameworksBuild: qbs.targetOS.contains("macos") && !staticBuild
 
-    property string app_target: qbs.targetOS.contains("macos") ? "Fish" : "fish"
+    property string appTarget: qbs.targetOS.contains("macos") ? "Fish" : "fish"
 
-    property string install_app_path: {
+    property string installAppPath: {
         if (qbs.targetOS.contains("macos"))
             return "Applications";
         else if (qbs.targetOS.contains("windows"))
@@ -15,36 +15,36 @@ Module {
             return "bin";
     }
 
-    property string install_binary_path: {
+    property string installBinaryPath: {
         if (qbs.targetOS.contains("macos"))
-            return install_app_path + "/" + app_target + ".app/Contents/MacOS"
+            return installAppPath + "/" + appTarget + ".app/Contents/MacOS"
         else
-            return install_app_path
+            return installAppPath
     }
 
-    property string lib_suffix: ""
+    property string libSuffix: ""
 
-    property string install_library_path: {
+    property string installLibraryPath: {
         if (qbs.targetOS.contains("macos"))
-            return install_app_path + "/" + app_target + ".app/Contents/Frameworks"
+            return installAppPath + "/" + appTarget + ".app/Contents/Frameworks"
         else if (qbs.targetOS.contains("windows"))
-            return install_app_path
+            return installAppPath
         else
-            return "lib" + lib_suffix + "/" + app_target
+            return "lib" + libSuffix + "/" + appTarget
     }
 
-    property string install_plugin_path: {
+    property string installPluginPath: {
         if (qbs.targetOS.contains("macos"))
-            return install_app_path + "/" + app_target + ".app/Contents/PlugIns"
+            return installAppPath + "/" + appTarget + ".app/Contents/PlugIns"
         else
-            return install_library_path + "/plugins"
+            return installLibraryPath + "/plugins"
     }
 
-    property string install_data_path: {
+    property string installDataPath: {
         if (qbs.targetOS.contains("macos"))
-            return install_app_path + "/" + app_target + ".app/Contents/Resources"
+            return installAppPath + "/" + appTarget + ".app/Contents/Resources"
         else
-            return "share/" + app_target
+            return "share/" + appTarget
     }
 
     property stringList includePaths: [ project.project_root + "/src" ]

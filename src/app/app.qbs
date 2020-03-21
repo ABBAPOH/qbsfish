@@ -17,7 +17,7 @@ MyApp {
         condition: qbs.targetOS.contains("macos")
         files: [ "Fish.icns" ]
         qbs.install: true
-        qbs.installDir: buildconfig.install_data_path
+        qbs.installDir: buildconfig.installDataPath
     }
 
     Group {
