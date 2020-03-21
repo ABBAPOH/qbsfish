@@ -5,6 +5,10 @@ Module {
     property bool frameworksBuild: qbs.targetOS.contains("macos") && !staticBuild
     property string libDirName: "lib"
 
+    property bool enableAddressSanitizer: false
+    property bool enableUbSanitizer: false
+    property bool enableThreadSanitizer: false
+
     readonly property string appTarget: qbs.targetOS.contains("macos") ? "Fish" : "fish"
 
     readonly property string installAppPath: {
@@ -46,19 +50,28 @@ Module {
             return "share/" + appTarget
     }
 
-    property stringList includePaths: [ project.project_root + "/src" ]
-    property stringList libraryPaths: []
-
-    property stringList commonFlags: []
-    property stringList cFlags: commonFlags
-    property stringList cxxFlags: commonFlags
-    property stringList linkFlags: commonFlags
-
     Depends { name: "cpp" }
 
-    cpp.cxxFlags: buildconfig.cxxFlags
-    cpp.linkerFlags: buildconfig.linkFlags
-    cpp.includePaths: buildconfig.includePaths
-    cpp.libraryPaths: buildconfig.libraryPaths
     cpp.cxxLanguageVersion: "c++14"
+    cpp.includePaths: [ project.project_root + "/src" ]
+
+    Properties {
+        condition: qbs.toolchain.contains("gcc")
+        cpp.cxxFlags: {
+            var flags = [];
+            if (enableAddressSanitizer)
+                flags.push("-fno-omit-frame-pointer");
+            return flags;
+        }
+        cpp.driverFlags: {
+            var flags = [];
+            if (enableAddressSanitizer)
+                flags.push("-fsanitize=address");
+            if (enableUbSanitizer)
+                flags.push("-fsanitize=undefined");
+            if (enableThreadSanitizer)
+                flags.push("-fsanitize=thread");
+            return flags;
+        }
+    }
 }
