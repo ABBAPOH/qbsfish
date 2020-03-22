@@ -15,7 +15,7 @@ QbsLibrary {
 
     install: !isStaticLibrary
     installDir: buildconfig.installLibraryPath
-    installDebugInformation: true
+    installDebugInformation: !isStaticLibrary
 
     Export {
         Depends { name: "cpp" }
