@@ -19,6 +19,12 @@ MyApp {
     }
 
     Group {
+        name: "fish.rc"
+        condition: qbs.targetOS.contains("windows")
+        files: [ "fish.rc" ]
+    }
+
+    Group {
         name: "fish.png"
         condition: qbs.targetOS.contains("linux")
         files: [ "fish.png" ]
