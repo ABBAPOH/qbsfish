@@ -1,7 +1,7 @@
 Project {
     references: [
-        "app/app.qbs",
-        "lib/lib.qbs",
+        "apps/apps.qbs",
+        "libs/libs.qbs",
     ]
 }
 

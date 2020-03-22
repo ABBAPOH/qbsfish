@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 
-#include <lib/class.h>
+#include <fishlib/class.h>
 
 #include <QtWidgets/QApplication>
 

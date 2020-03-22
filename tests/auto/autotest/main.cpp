@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include <lib/class.h>
+#include <fishlib/class.h>
 
 int main(int argc, char *argv[])
 {
