@@ -52,6 +52,7 @@ Module {
     Depends { name: "cpp" }
 
     cpp.cxxLanguageVersion: "c++17"
+    cpp.separateDebugInformation: true
 
     Properties {
         condition: qbs.toolchain.contains("gcc")
