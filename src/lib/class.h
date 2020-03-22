@@ -1,7 +1,9 @@
 #ifndef CLASS_H
 #define CLASS_H
 
-class Class
+#include "fishlib_global.h"
+
+class FISHLIB_EXPORT Class
 {
 public:
     Class();
