@@ -4,6 +4,7 @@ MyApp {
     Depends { name: "Qt.core" }
     Depends { name: "Qt.widgets" }
     Depends { name: "FishLib" }
+    Depends { name: "FishPlugin"; cpp.link: false }
 
     name: "Fish"
 

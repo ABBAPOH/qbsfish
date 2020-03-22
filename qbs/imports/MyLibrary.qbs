@@ -20,6 +20,6 @@ QbsLibrary {
     Export {
         Depends { name: "cpp" }
         cpp.includePaths: ".."
-        cpp.defines: buildconfig.staticBuild ? ["FISH_STATIC_LIBRARY"] : []
+        cpp.defines: product.isStaticLibrary ? ["FISH_STATIC_LIBRARY"] : []
     }
 }
