@@ -7,9 +7,7 @@ MyApp {
 
     name: "Fish"
 
-    files: [ "*.cpp", "*.h", "*.ui" ]
-
-//    bundle.infoPlistFile: "Info.plist.in"
+    files: [ "*.cpp", "*.h", "*.ui", "Fish-Info.plist" ]
 
     Group {
         name: "Fish.icns"
