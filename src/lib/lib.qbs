@@ -5,5 +5,4 @@ MyLibrary {
 
     name: "FishLib"
     files: [ "*.cpp", "*.h" ]
-    cpp.defines: ["FISHLIB_LIBRARY"]
 }
