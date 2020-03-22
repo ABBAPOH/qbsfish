@@ -10,7 +10,7 @@ MyApp {
     name: "Fish"
     targetName: buildconfig.appTarget
 
-    files: [ "*.cpp", "*.h", "*.ui", "Fish-Info.plist" ]
+    files: [ "*.cpp", "*.h", "*.ui", "*Info.plist" ]
 
     Group {
         name: "Fish.icns"
