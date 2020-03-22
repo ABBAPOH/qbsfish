@@ -35,6 +35,19 @@ QbsNativeBinary {
         return ["dynamiclibrary"].concat(isForAndroid ? ["android.nativelibrary"] : []);
     }
 
+    readonly property bool isDynamicLibrary: type.contains("dynamiclibrary")
+    readonly property bool isStaticLibrary: type.contains("staticlibrary")
+    readonly property bool isLoadableModule: type.contains("loadablemodule")
+
+    installDir: {
+        if (isBundle)
+            return "Library/Frameworks";
+        if (isDynamicLibrary)
+            return qbs.targetOS.contains("windows") ? "bin" : "lib";
+        if (isStaticLibrary)
+            return "lib";
+    }
+
     property bool installImportLib: false
     property string importLibInstallDir: "lib"
 
@@ -43,12 +56,10 @@ QbsNativeBinary {
         fileTagsFilter: {
             if (isBundle)
                 return ["bundle.content"];
-            else if (type.contains("dynamiclibrary"))
+            if (isDynamicLibrary)
                 return ["dynamiclibrary", "dynamiclibrary_symlink"];
-            else if (type.contains("staticlibrary"))
+            if (isStaticLibrary)
                 return ["staticlibrary"];
-            else if (type.contains("loadablemodule"))
-                return ["loadablemodule"];
             return [];
         }
         qbs.install: true
@@ -61,5 +72,19 @@ QbsNativeBinary {
         fileTagsFilter: "dynamiclibrary_import"
         qbs.install: true
         qbs.installDir: importLibInstallDir
+    }
+
+    Group {
+        condition: installDebugInformation
+        fileTagsFilter: {
+            if (isDynamicLibrary)
+                return ["debuginfo_dll"];
+            else if (isLoadableModule)
+                return ["debuginfo_loadablemodule"];
+            return [];
+        }
+        qbs.install: true
+        qbs.installDir: debugInformationInstallDir
+        qbs.installSourceBase: destinationDirectory
     }
 }

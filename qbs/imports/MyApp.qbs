@@ -13,4 +13,5 @@ QbsCppApplication {
 
     install: true
     installDir: buildconfig.installAppPath
+    installDebugInformation: true
 }
