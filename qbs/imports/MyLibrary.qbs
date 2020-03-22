@@ -10,7 +10,6 @@ QbsLibrary {
     cpp.defines: buildconfig.staticBuild ? ["FISH_STATIC_LIBRARY"] : ["FISH_LIBRARY"]
     cpp.sonamePrefix: qbs.targetOS.contains("macos") ? "@rpath" : undefined
     cpp.rpaths: cpp.rpathOrigin
-    cpp.minimumMacosVersion: "10.10"
     cpp.includePaths: ".."
 
     install: !isStaticLibrary
