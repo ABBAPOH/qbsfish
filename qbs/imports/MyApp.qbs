@@ -8,7 +8,7 @@ QbsCppApplication {
                                    "..",
                                    qbs.targetOS.contains("macos")
                                    ? "Frameworks"
-                                   : "lib/" + buildconfig.appTarget)
+                                   : buildconfig.installLibraryPath)
     install: true
     installDir: buildconfig.installAppPath
     installDebugInformation: true
