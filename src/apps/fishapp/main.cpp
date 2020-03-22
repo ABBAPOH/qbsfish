@@ -17,7 +17,7 @@ QString pluginsDir()
 #elif defined(Q_OS_WIN)
     result += "/plugins";
 #else
-    result += "/lib/fish/plugins";
+    result += "/../lib/fish/plugins";
 #endif
     return QDir::cleanPath(result);
 }
