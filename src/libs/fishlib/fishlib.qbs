@@ -1,4 +1,8 @@
 MyLibrary {
     name: "FishLib"
-    files: [ "*.cpp", "*.h" ]
+    files: [
+        "class.cpp",
+        "class.h",
+        "fishlib_global.h",
+    ]
 }
