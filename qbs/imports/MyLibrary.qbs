@@ -7,14 +7,14 @@ QbsLibrary {
     type: buildconfig.staticBuild ? "staticlibrary" : "dynamiclibrary"
 
     bundle.isBundle: buildconfig.frameworksBuild
-    cpp.includePaths: ".."
+    cpp.includePaths: [".."]
     cpp.defines: buildconfig.staticBuild ? ["FISH_STATIC_LIBRARY"] : ["FISH_LIBRARY"]
     cpp.sonamePrefix: qbs.targetOS.contains("macos") ? "@rpath" : undefined
     cpp.rpaths: cpp.rpathOrigin
 
     Export {
         Depends { name: "cpp" }
-        cpp.includePaths: ".."
+        cpp.includePaths: [".."]
         cpp.defines: product.isStaticLibrary ? ["FISH_STATIC_LIBRARY"] : []
     }
 
