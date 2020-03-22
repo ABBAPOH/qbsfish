@@ -14,10 +14,21 @@ QString pluginsDir()
     QString result = QCoreApplication::applicationDirPath();
 #if defined(Q_OS_MAC)
     result += "/../PlugIns" ;
+#elif defined(Q_OS_WIN)
+    result += "/plugins";
 #else
     result += "/lib/fish/plugins";
 #endif
     return QDir::cleanPath(result);
+}
+
+QString pluginFileName(QStringView pluginName)
+{
+#if defined(Q_OS_WIN)
+    return pluginName.toString();
+#else
+    return QStringLiteral("lib%1").arg(pluginName);
+#endif
 }
 
 int main(int argc, char *argv[])
@@ -29,7 +40,7 @@ int main(int argc, char *argv[])
 
     qDebug() << pluginsDir();
 
-    QLibrary lib(pluginsDir() + "/libFishPlugin");
+    QLibrary lib(pluginsDir() + '/' + pluginFileName(u"FishPlugin"));
     if (!lib.load()) {
         qCritical() << "Failed to load plugin";
         return 1;

@@ -4,7 +4,7 @@
 #include "plugin_global.h"
 
 extern "C" {
-const char *PLUGINLIB_EXPORT bar();
+PLUGINLIB_EXPORT const char * bar();
 }
 
 #endif // PLUGIN_H
