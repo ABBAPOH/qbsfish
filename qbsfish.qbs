@@ -3,13 +3,10 @@ Project {
 
     qbsSearchPaths: "qbs"
 
-    SubProject {
-        filePath: "src/src.qbs"
-    }
-    SubProject {
-        filePath: "tests/tests.qbs"
-    }
+    references: [
+         "src/src.qbs",
+         "tests/tests.qbs",
+    ]
 
     AutotestRunner {}
 }
-

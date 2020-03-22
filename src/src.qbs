@@ -1,9 +1,7 @@
 Project {
-    SubProject {
-        filePath: "app/app.qbs"
-    }
-    SubProject {
-        filePath: "lib/lib.qbs"
-    }
+    references: [
+        "app/app.qbs",
+        "lib/lib.qbs",
+    ]
 }
 
