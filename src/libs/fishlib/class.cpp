@@ -1,19 +1,12 @@
 #include "class.h"
 
-#include <QDebug>
+#include <iostream>
 
-Class::Class()
-{
-
-}
-
-Class::~Class()
-{
-
-}
+Class::Class() = default;
+Class::~Class() = default;
 
 void Class::foo()
 {
-    qDebug() << "Hello from foo()";
+    std::cout << "Hello from foo()" << std::endl;
 }
 

@@ -1,5 +1,6 @@
 Project {
     references: [
-        "fishapp/fishapp.qbs"
+        "fishapp/fishapp.qbs",
+        "tool/tool.qbs",
     ]
 }
