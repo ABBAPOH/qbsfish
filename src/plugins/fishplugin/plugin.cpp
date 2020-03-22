@@ -1,6 +1,6 @@
 #include "plugin.h"
 
-std::string_view bar()
+const char *bar()
 {
     return "hello from bar()";
 }

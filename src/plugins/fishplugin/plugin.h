@@ -3,8 +3,8 @@
 
 #include "plugin_global.h"
 
-#include <string>
-
-std::string_view PLUGINLIB_EXPORT bar();
+extern "C" {
+const char *PLUGINLIB_EXPORT bar();
+}
 
 #endif // PLUGIN_H
