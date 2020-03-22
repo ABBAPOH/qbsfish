@@ -12,13 +12,13 @@ QbsLibrary {
     cpp.sonamePrefix: qbs.targetOS.contains("macos") ? "@rpath" : undefined
     cpp.rpaths: cpp.rpathOrigin
 
-    install: !isStaticLibrary
-    installDir: buildconfig.installLibraryPath
-    installDebugInformation: !isStaticLibrary
-
     Export {
         Depends { name: "cpp" }
         cpp.includePaths: ".."
         cpp.defines: product.isStaticLibrary ? ["FISH_STATIC_LIBRARY"] : []
     }
+
+    install: !isStaticLibrary
+    installDir: buildconfig.installLibraryPath
+    installDebugInformation: !isStaticLibrary
 }
