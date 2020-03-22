@@ -1,5 +1,3 @@
-import qbs.base 1.0
-
 MyLibrary {
     Depends { name: "Qt.core" }
 

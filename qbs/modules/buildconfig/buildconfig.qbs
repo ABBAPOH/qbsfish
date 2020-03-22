@@ -1,5 +1,3 @@
-import qbs 1.0
-
 Module {
     property bool staticBuild: false
     property bool frameworksBuild: qbs.targetOS.contains("macos") && !staticBuild
