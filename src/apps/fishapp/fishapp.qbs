@@ -1,12 +1,14 @@
 import qbs.FileInfo
 
 MyApp {
+    Depends { name: "buildconfig" }
     Depends { name: "Qt.core" }
     Depends { name: "Qt.widgets" }
     Depends { name: "FishLib" }
     Depends { name: "FishPlugin"; cpp.link: false }
 
     name: "Fish"
+    targetName: buildconfig.appTarget
 
     files: [ "*.cpp", "*.h", "*.ui", "Fish-Info.plist" ]
 
