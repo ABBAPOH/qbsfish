@@ -3,8 +3,8 @@ import qbs.FileInfo
 QbsLibrary {
     Depends { name: "buildconfig" }
     Depends { name: "bundle" }
-    type: buildconfig.staticBuild ? "staticlibrary" : "dynamiclibrary"
     Depends { name: "cpp" }
+    type: buildconfig.staticBuild ? "staticlibrary" : "dynamiclibrary"
 
     bundle.isBundle: buildconfig.frameworksBuild
     cpp.defines: buildconfig.staticBuild ? ["FISH_STATIC_LIBRARY"] : ["FISH_LIBRARY"]
