@@ -13,7 +13,7 @@ QbsLibrary {
     cpp.minimumMacosVersion: "10.10"
     cpp.includePaths: ".."
 
-    install: true
+    install: !isStaticLibrary
     installDir: buildconfig.installLibraryPath
     installDebugInformation: true
 
