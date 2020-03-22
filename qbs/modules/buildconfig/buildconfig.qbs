@@ -1,11 +1,12 @@
 Module {
     property bool staticBuild: false
     property bool frameworksBuild: qbs.targetOS.contains("macos") && !staticBuild
-    property string libDirName: "lib"
 
     property bool enableAddressSanitizer: false
     property bool enableUbSanitizer: false
     property bool enableThreadSanitizer: false
+
+    property string libDirName: "lib"
 
     readonly property string appTarget: qbs.targetOS.contains("macos") ? "Fish" : "fish"
 
