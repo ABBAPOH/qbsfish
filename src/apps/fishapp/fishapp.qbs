@@ -11,7 +11,6 @@ MyApp {
 
     name: "Fish"
     targetName: buildconfig.appTarget
-    ib.appIconName: "Fish"
 
     files: [
         "Fish-Info.plist",
@@ -23,6 +22,8 @@ MyApp {
         "mainwindow.h",
         "mainwindow.ui",
     ]
+
+    ib.appIconName: "Fish"
 
     Group {
         name: "fish.png"
