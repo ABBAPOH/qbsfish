@@ -11,7 +11,15 @@ MyApp {
     name: "Fish"
     targetName: buildconfig.appTarget
 
-    files: [ "*.cpp", "*.h", "*.ui", "*Info.plist", "*.desktop" ]
+    files: [
+        "Fish-Info.plist",
+        "fish.desktop",
+        "fish.rc",
+        "main.cpp",
+        "mainwindow.cpp",
+        "mainwindow.h",
+        "mainwindow.ui",
+    ]
 
     Group {
         name: "Fish.icns"
@@ -19,12 +27,6 @@ MyApp {
         files: [ "Fish.icns" ]
         qbs.install: true
         qbs.installDir: buildconfig.installDataPath
-    }
-
-    Group {
-        name: "fish.rc"
-        condition: qbs.targetOS.contains("windows")
-        files: [ "fish.rc" ]
     }
 
     Group {
