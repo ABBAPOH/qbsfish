@@ -15,10 +15,10 @@ Library {
     Export {
         Depends { name: "cpp" }
         cpp.includePaths: [".."]
-        cpp.defines: product.isStaticLibrary ? ["FISH_STATIC_LIBRARY"] : []
+        cpp.defines: buildconfig.staticBuild ? ["FISH_STATIC_LIBRARY"] : []
     }
 
-    install: !isStaticLibrary
+    install: !buildconfig.staticBuild
     installDir: buildconfig.installLibraryPath
-    installDebugInformation: !isStaticLibrary
+    installDebugInformation: !buildconfig.staticBuild
 }
