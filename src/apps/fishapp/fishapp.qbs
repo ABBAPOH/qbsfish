@@ -6,11 +6,12 @@ MyApp {
     Depends { name: "Qt.widgets" }
     Depends { name: "FishLib" }
     Depends { name: "FishPlugin"; cpp.link: false }
+    Depends { name: "freedesktop" }
 
     name: "Fish"
     targetName: buildconfig.appTarget
 
-    files: [ "*.cpp", "*.h", "*.ui", "*Info.plist" ]
+    files: [ "*.cpp", "*.h", "*.ui", "*Info.plist", "*.desktop" ]
 
     Group {
         name: "Fish.icns"
@@ -32,13 +33,5 @@ MyApp {
         files: [ "fish.png" ]
         qbs.install: true
         qbs.installDir: "share/pixmaps"
-    }
-
-    Group {
-        name: "fish.desktop"
-        condition: qbs.targetOS.contains("unix") && !qbs.targetOS.contains("macos")
-        files: [ "fish.desktop" ]
-        qbs.install: true
-        qbs.installDir: "share/applications"
     }
 }
