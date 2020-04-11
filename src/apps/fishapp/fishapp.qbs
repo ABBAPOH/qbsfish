@@ -2,6 +2,7 @@ import qbs.FileInfo
 
 MyApp {
     Depends { name: "buildconfig" }
+    Depends { name: "ib" }
     Depends { name: "freedesktop" }
     Depends { name: "Qt.core" }
     Depends { name: "Qt.widgets" }
@@ -10,24 +11,18 @@ MyApp {
 
     name: "Fish"
     targetName: buildconfig.appTarget
+    ib.appIconName: "Fish"
 
     files: [
         "Fish-Info.plist",
         "fish.desktop",
         "fish.rc",
+        "fish.xcassets",
         "main.cpp",
         "mainwindow.cpp",
         "mainwindow.h",
         "mainwindow.ui",
     ]
-
-    Group {
-        name: "Fish.icns"
-        condition: qbs.targetOS.contains("macos")
-        files: [ "Fish.icns" ]
-        qbs.install: true
-        qbs.installDir: buildconfig.installDataPath
-    }
 
     Group {
         name: "fish.png"
