@@ -1,4 +1,4 @@
-QbsCppApplication {
+CppApplication {
     Depends { name: "buildconfig" }
     type: ["application", "autotest"]
     consoleApplication: true

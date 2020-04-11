@@ -1,6 +1,6 @@
 import qbs.FileInfo
 
-QbsLibrary {
+Library {
     Depends { name: "buildconfig" }
     Depends { name: "bundle" }
     Depends { name: "cpp" }
