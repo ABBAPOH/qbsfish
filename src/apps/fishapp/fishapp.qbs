@@ -2,7 +2,7 @@ import qbs.FileInfo
 
 MyApp {
     Depends { name: "buildconfig" }
-    Depends { name: "ib" }
+    Depends { name: "ib"; condition: qbs.targetOS.contains("macos") }
     Depends { name: "freedesktop" }
     Depends { name: "Qt.core" }
     Depends { name: "Qt.widgets" }
@@ -23,7 +23,10 @@ MyApp {
         "mainwindow.ui",
     ]
 
-    ib.appIconName: "Fish"
+    Properties {
+        condition: qbs.targetOS.contains("macos")
+        ib.appIconName: "Fish"
+    }
 
     Group {
         name: "fish.png"
