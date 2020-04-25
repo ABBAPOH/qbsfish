@@ -1,2 +1,2 @@
-# QBS Fish
-A skeleton ("fish") of the typical QBS project
+# Qbs Fish
+A skeleton ("fish") of the typical Qbs project
