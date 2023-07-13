@@ -1,6 +1,5 @@
 Module {
-    property bool staticBuild: false
-    property bool frameworksBuild: qbs.targetOS.contains("macos") && !staticBuild
+    // these are "private" and thus not exposed in the Project
 
     property bool enableAddressSanitizer: false
     property bool enableUbSanitizer: false
@@ -8,6 +7,13 @@ Module {
 
     property string libDirName: "lib"
 
+    readonly property bool frameworksBuild: {
+        // detect default value - true if product is build for macos AND is not static build
+        // AND user specifically didn't set the value in the project
+        if (project.frameworksBuild !== undefined)
+            return project.frameworksBuild;
+        return qbs.targetOS.contains("macos") && !project.staticBuild;
+    }
     readonly property string appTarget: qbs.targetOS.contains("macos") ? "Fish" : "fish"
 
     readonly property string installAppPath: {
